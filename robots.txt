@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://fuj1n.github.io/sitemap.xml
