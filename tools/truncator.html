@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="fuj1n, truncator, T7R, tool, text processing">
+    <meta name="description" content="A simple tool to truncate words into their T7R form, which is {first letter}{number of letters in between}{last letter}.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fuj1n's Site - T7R Truncator</title>
+</head>
+<body>
+    <h1>T7R Truncator</h1>
+    <sup><a href="../index.html">Back home</a></sup><br>
+    <div style="display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center;">
+        <label for="inputText">Input:</label>
+        <input type="text" id="inputText" placeholder="Enter text to truncate">
+        <label for="outputText">Output:</label>
+        <input type="text" id="outputText" readonly placeholder="The result will appear here live">
+    </div>
+
+    <script>
+        document.getElementById('inputText').addEventListener('input', function() {
+            const input = this.value;
+            const words = input.split(/\s+/);
+            const truncatedWords = words.map(word => {
+                if (word.length <= 3) return word; // No truncation for short words
+                return word[0] + (word.length - 2) + word[word.length - 1];
+            });
+            document.getElementById('outputText').value = truncatedWords.join(' ');
+        });
+    </script>
+</body>
+</html>
